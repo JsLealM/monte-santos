@@ -39,6 +39,21 @@ Asegúrate de tener [Node.js](https://nodejs.org/) y tu gestor de paquetes prefe
    pnpm run build
    ```
 
+### ☁️ Despliegue en Vercel
+
+Este proyecto está optimizado para ser desplegado instantáneamente en Vercel. 
+Ya incluye el archivo de configuración `vercel.json` en la raíz para garantizar que el enrutamiento (routing) de Single Page Application (SPA) funcione sin generar errores 404.
+
+1. Instala la CLI de Vercel (opcional): `npm i -g vercel`
+2. En la terminal de tu proyecto, simplemente ejecuta:
+   ```bash
+   vercel
+   ```
+3. O si prefieres conectarlo vía GitHub:
+   - Sube este repositorio a GitHub.
+   - Ve a tu panel de Vercel y selecciona "Add New Project".
+   - Importa tu repositorio. Vercel detectará automáticamente que es un proyecto **Vite** y configurará el comando de Build (`pnpm run build`) y el directorio de salida (`dist`).
+
 ## 🎨 Principios del Sistema de Diseño
 
 El proyecto obedece reglas estrictas de diseño para preservar su identidad documental:
