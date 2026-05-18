@@ -4,48 +4,6 @@ import { useGlobalReveal } from './hooks/useReveal';
 import FormalizacionChart from './components/FormalizacionChart';
 import './App.css';
 
-/* =========================================================
-   QR Code SVG
-   ========================================================= */
-function QRCode() {
-  return (
-    <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Código QR para acceder a esta página">
-      <rect x="10" y="10" width="50" height="50" rx="2" fill="currentColor"/>
-      <rect x="14" y="14" width="42" height="42" rx="1" fill="white"/>
-      <rect x="20" y="20" width="30" height="30" rx="1" fill="currentColor"/>
-      
-      <rect x="120" y="10" width="50" height="50" rx="2" fill="currentColor"/>
-      <rect x="124" y="14" width="42" height="42" rx="1" fill="white"/>
-      <rect x="130" y="20" width="30" height="30" rx="1" fill="currentColor"/>
-      
-      <rect x="10" y="120" width="50" height="50" rx="2" fill="currentColor"/>
-      <rect x="14" y="124" width="42" height="42" rx="1" fill="white"/>
-      <rect x="20" y="130" width="30" height="30" rx="1" fill="currentColor"/>
-
-      {[70,80,90,100,110].map(x => 
-        [10,20,30,40,50,70,80,90,100,110,120,130,140,150,160].map(y => (
-          Math.abs(Math.sin(x * 7 + y * 13)) > 0.45 &&
-          <rect key={`${x}-${y}`} x={x} y={y} width="8" height="8" fill="currentColor" opacity="0.85"/>
-        ))
-      )}
-      {[10,20,30,40,50].map(x => 
-        [70,80,90,100,110].map(y => (
-          Math.abs(Math.cos(x * 11 + y * 7)) > 0.5 &&
-          <rect key={`b${x}-${y}`} x={x} y={y} width="8" height="8" fill="currentColor" opacity="0.85"/>
-        ))
-      )}
-      {[120,130,140,150,160].map(x => 
-        [70,80,90,100,110,120,130,140,150,160].map(y => (
-          Math.abs(Math.sin(x * 3 + y * 17)) > 0.42 &&
-          <rect key={`c${x}-${y}`} x={x} y={y} width="8" height="8" fill="currentColor" opacity="0.85"/>
-        ))
-      )}
-      <rect x="120" y="120" width="20" height="20" rx="1" fill="currentColor"/>
-      <rect x="124" y="124" width="12" height="12" rx="1" fill="white"/>
-      <rect x="127" y="127" width="6" height="6" rx="1" fill="currentColor"/>
-    </svg>
-  );
-}
 
 /* =========================================================
    THEME TOGGLE
@@ -1118,7 +1076,7 @@ function BibliographyView() {
             <div className="qr-block">
               <p className="qr-block__label">Compartir</p>
               <p className="qr-block__text">Escanea el código para acceder a este documento desde tu dispositivo.</p>
-              <div className="qr-frame"><QRCode /></div>
+              <div className="qr-frame"><img src="/codigoQR.svg" alt="Código QR del documental" style={{ width: '180px', height: '180px', display: 'block' }} /></div>
             </div>
           </div>
         </div>
