@@ -1031,7 +1031,6 @@ function InfografiaView() {
         <div className="section__inner reveal">
           <hr className="rule" />
           <p className="section__label">Resumen Visual</p>
-          <h2 className="section__heading">Infografía de la Región</h2>
           <div style={{ marginTop: 'var(--space-2xl)', display: 'flex', justifyContent: 'center' }}>
             <figure style={{ margin: '0 auto', width: '100%', maxWidth: '850px', transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)', cursor: 'pointer', mixBlendMode: 'multiply' }}
                     onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px) scale(1.01)'; }}
