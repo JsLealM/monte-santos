@@ -1050,12 +1050,41 @@ function InfografiaView() {
    ========================================================= */
 function BibliographyView() {
   const entries = [
-    { author: 'Gutiérrez, R.', year: '1992', title: 'Arquitectura y urbanismo en Iberoamérica', detail: 'Madrid: Ediciones Cátedra.' },
-    { author: 'Instituto Geográfico Agustín Codazzi', year: '2005', title: 'Atlas de Colombia', detail: 'Bogotá: IGAC, 6ª edición.' },
-    { author: 'Lleras Pérez, R.', year: '1989', title: 'Arqueología del alto valle del río Chicamocha', detail: 'Boletín del Museo del Oro, 24, pp. 78-95.' },
-    { author: 'Morales, J. & Puentes, W.', year: '2011', title: 'Ecosistemas del Cañón del Chicamocha', detail: 'Revista Colombia Forestal, 14(2), pp. 145-162.' },
-    { author: 'Saldarriaga Roa, A.', year: '2002', title: 'La arquitectura en Colombia: una mirada abierta', detail: 'Bogotá: Editorial Villegas.' },
-    { author: 'Vargas Lesmes, J.', year: '1990', title: 'La sociedad de Santafé colonial', detail: 'Bogotá: CINEP.' },
+    {
+      title: 'Plan de Desarrollo Departamental 2024 - 2027: "Santander Tierra de Oportunidades"',
+      detail: 'Documento oficial que detalla las políticas de competitividad y formalización turística regional.',
+      link: 'https://santander.gov.co/publicaciones/10108/plan-de-desarrollo-departamental-2024-2027/'
+    },
+    {
+      title: 'Portal Oficial del Registro Nacional de Turismo (RNT)',
+      detail: 'Inscripción, actualización y consulta de prestadores formales en todo el país.',
+      link: 'https://rnt.confecamaras.co/home'
+    },
+    {
+      title: 'Boletín de prensa sobre la apuesta del Gobierno Nacional por la sostenibilidad en destinos como el Cañón del Chicamocha y la Mesa de los Santos',
+      link: 'https://www.mincit.gov.co/prensa/noticias/turismo/proyectos-apuestan-desarrollo-turistico-santander'
+    },
+    {
+      title: 'Convocatorias y beneficios para residentes y prestadores de la Mesa de los Santos (Descuento Peaje La Punta)',
+      link: 'https://santander.gov.co/publicaciones/9213/nueva-convocatoria-para-que-residentes-de-lamesa-de-los-santos-accedan-al-descuento-del-peaje-la-punta/'
+    },
+    {
+      author: 'Ministerio de Comercio, Industria y Turismo',
+      year: '2026',
+      title: 'ABC de la Formalización Turística',
+      detail: 'Documento que explica las sanciones y beneficios de la legalidad en el sector.',
+      link: 'https://www.mincit.gov.co/prensa/noticias/turismo/mincit-invita-renovar-registro-nacional-de-turismo'
+    },
+    {
+      title: 'Cámara de Comercio de Bucaramanga',
+      detail: 'Guía y trámites para el Registro Nacional de Turismo (RNT) y Matrícula Mercantil. Información centralizada sobre cómo legalizar un negocio en Santander.',
+      link: 'https://www.camaradirecta.com/preguntas-frecuentes'
+    },
+    {
+      title: 'Obligaciones Legales de Restaurantes en Colombia',
+      detail: 'Guía técnica sobre las leyes de sanidad y facturación vigentes para este año.',
+      link: 'https://www.fintaxcol.com/permisos-y-obligaciones-legales-de-un-restaurante-en-colombia/'
+    }
   ];
 
   return (
@@ -1066,13 +1095,29 @@ function BibliographyView() {
           <p className="section__label">Bibliografía y Referencias</p>
           <h2 className="section__heading">Fuentes consultadas y acceso</h2>
           <div className="bib-layout">
-            <ol className="bib-list">
-              {entries.map((entry, i) => (
-                <li className="bib-entry" key={i}>
-                  <span className="bib-entry__author">{entry.author}</span> <span className="bib-entry__year">({entry.year}).</span> <span className="bib-entry__title">{entry.title}.</span> {entry.detail}
-                </li>
-              ))}
-            </ol>
+            <div>
+              <ol className="bib-list">
+                {entries.map((entry, i) => (
+                  <li className="bib-entry" key={i} style={{ marginBottom: '1.25rem' }}>
+                    {entry.author && <span className="bib-entry__author">{entry.author}</span>}
+                    {entry.year && <span className="bib-entry__year"> ({entry.year}).</span>}
+                    {entry.title && <span className="bib-entry__title" style={{ fontWeight: '600' }}> {entry.title}.</span>}
+                    {entry.detail && <span> {entry.detail}</span>}
+                    {entry.link && (
+                      <span style={{ display: 'block', marginTop: '6px' }}>
+                        <a href={entry.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', wordBreak: 'break-word', color: 'var(--color-text)' }}>
+                          {entry.link}
+                        </a>
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+              <div style={{ marginTop: 'var(--space-xl)', fontSize: '0.85rem', color: 'var(--color-text-secondary)', borderTop: '1px solid var(--color-rule)', paddingTop: 'var(--space-md)' }}>
+                <p style={{ margin: '0 0 4px 0' }}><strong>Fuentes:</strong> Camara de Comercio de Bucaramanga | DANE-EMICRON | MinCIT | ANIF | Portafolio</p>
+                <p style={{ margin: 0 }}>Mayo 2026</p>
+              </div>
+            </div>
             <div className="qr-block">
               <p className="qr-block__label">Compartir</p>
               <p className="qr-block__text">Escanea el código para acceder a este documento desde tu dispositivo.</p>
